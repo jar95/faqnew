@@ -32,7 +32,7 @@
                     <div class="row">
                         <div class="col-sm-8 col-md-7 py-4">
                             <h4 class="text-white">Information</h4>
-                            <p class="text-muted">Add some Questions. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                            <p class="text-muted">Add some text here......</p>
                         </div>
                         <div>
                             <br><br>

@@ -1,30 +1,62 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <title>Laravel</title>
 
-    </head>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    Official Themes
+    Take Bootstrap 4 to the next level with official premium themes—toolkits built on Bootstrap with new components and plugins, docs, and build tools.
+
 
     <!-- Styles -->
     <style>
-        body,html,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif;
+        html, body {
             background-color: #fff;
             color: #636b6f;
+            font-family: 'Raleway', sans-serif;
             font-weight: 100;
             height: 100vh;
             margin: 0;
         }
-        .w3-third img{margin-bottom: -100px; opacity: 0.8; cursor: pointer}
-        .w3-third img:hover{opacity: 1}
+        .carousel-item {
+            height: 32rem;
+            background-color: #777;
+        }
+        .carousel-item > img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 32rem;
+        }
 
+        .carousel {
+            margin-bottom: 4rem;
+        }
+
+        .carousel-caption {
+            bottom: 3rem;
+            z-index: 10;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+
+        .center-fit {
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+        }
 
         .full-height {
             height: 100vh;
@@ -43,7 +75,7 @@
         .top-right {
             position: absolute;
             right: 10px;
-            top: 28px;
+            top: 18px;
         }
 
         .content {
@@ -65,56 +97,100 @@
         }
 
         .m-b-md {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
     </style>
-    <body class="w3-light-grey w3-content" style="max-width:1600px">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
 
-        <!-- Sidebar/menu -->
-        <nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
-            <h1 class="w3-padding-146 w3-center"><b>NJIT<br>Project</b></h1>
+    <title>Carousel Template for Bootstrap</title>
 
-        </nav>
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Overlay effect when opening sidebar on small screens -->
-        <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="faqs" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">NJIT</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <!--    !PAGE CONTENT! -->
-        <div class="w3-main" style="margin-left:300px">
-
-            <div class="flex-center position-ref full-height">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
                 @if (Route::has('login'))
                     <div class="top-right links">
                         @auth
-                            
+                            <a href="{{ url('/home') }}">Home</a>
                         @else
                             <a href="{{ route('login') }}">Login</a>
                             <a href="{{ route('register') }}">Register</a>
                         @endauth
                     </div>
                 @endif
-                <div class="content">
-                    <div class="title m-b-md">
-                        Laravel
+            </div>
+        </nav>
+    </header>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="imgbox">
+                    <img  class="center-fit" src="{{'botman.png'}}" alt="First slide">
+                    <div class="carousel-caption text-right">
+                        <br><br><h1>Botman</h1>
+                        <p>Main text about functionality of Botman feature...</p>
+                        <p><a class="btn btn-lg btn-primary" href="{{'botman/tinker'}}" role="button">Start</a></p>
                     </div>
-                    <a href="botman/tinker" onclick="faqs()" class="bar-item w3-button">Botman</a>
-                    <a href="{{ url('home') }}" onclick="faqs()" class="bar-item w3-button">Faqs</a>
+
                 </div>
             </div>
 
-            <script>
-                // Script to open and close sidebar
-                function w3_open() {
-                    document.getElementById("mySidebar").style.display = "block";
-                    document.getElementById("myOverlay").style.display = "block";
-                }
+            <div class="carousel-item">
+                <div class="imgbox">
+                    <img class="center-fit" src="{{'faqs.jpeg'}}" alt="Second slide">
+                    <div class="carousel-caption text-right">
+                        <br><br><h1>FAQs</h1>
+                        <p>Features that callow Comunicate different platforms...</p>
+                        <p><a class="btn btn-lg btn-primary" href="{{'home'}}" role="button">Start</a></p>
+                    </div>
+                </div>
+            </div>
 
-                function faqs() {
-                    document.getElementById("mySidebar").style.display = "none";
-                    document.getElementById("myOverlay").style.display = "none";
-                }
-
-            </script>
+            <div class="carousel-item">
+                <div class="imgbox">
+                    <img class="center-fit" src="{{'live.jpeg'}}" alt="Third slide">
+                    <div class="carousel-caption text-right">
+                        <h1>Chat Live</h1>
+                        <p>New feature is coming...</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </body>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+
+</body>
 </html>
